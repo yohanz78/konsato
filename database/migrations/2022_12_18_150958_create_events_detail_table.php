@@ -15,13 +15,13 @@ return new class extends Migration
     {
         Schema::create('events_detail', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('ticket_id')->unsigned();
+            $table->bigInteger('event_id')->unsigned();
             $table->string('artist');
             $table->date('tanggal');
             $table->string('lokasi');
             $table->text('image'); // image tipe data text
             $table->timestamps();
-            $table->foreign('ticket_id')->references('id')->on('events')->onDelete('cascade');
+            $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade');
         });
     }
 

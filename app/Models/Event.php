@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Events extends Model
+class Event extends Model
 {
     use HasFactory, SoftDeletes;
 
@@ -14,4 +14,9 @@ class Events extends Model
         'title',
         'price',
     ];
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }
