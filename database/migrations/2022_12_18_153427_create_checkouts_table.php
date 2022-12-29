@@ -18,8 +18,6 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained();
             $table->foreignId('event_id')->constrained();
             $table->string('category');
-            $table->string('phone');
-            $table->string('address');
             $table->boolean('is_paid')->default(false);
             $table->timestamps();
             $table->softDeletes();

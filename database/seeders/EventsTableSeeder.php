@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Events; // memakai data model di event
+use App\Models\Event; // memakai data model di event
 
 class EventsTableSeeder extends Seeder
 {
@@ -15,7 +15,7 @@ class EventsTableSeeder extends Seeder
      */
     public function run()
     {
-        $events = [
+        $event = [
             [
                 'title'         => 'Dreamers Concert',
                 'slug'          => 'dreamer-concert',
@@ -60,6 +60,6 @@ class EventsTableSeeder extends Seeder
             ],
         ];
 
-        Events::insert($events);
+        Event::insert($event);
     }
 }

@@ -15,7 +15,7 @@ class EventsDetail extends Model
 
 
     protected $fillable = [
-        'ticket_id',
+        'event_id',
         'artist',
         'tanggal',
         'lokasi',

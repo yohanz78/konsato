@@ -14,8 +14,6 @@ class Checkout extends Model
         'user_id',
         'event_id',
         'category',
-        'phone',
-        'address',
         'is_paid',
     ];
 }
