@@ -21,8 +21,6 @@ class CheckoutController extends Controller
 
     public function store(Request $request, $event_id)
     {
-        // dump($request);
-        // dd($event);
         $event = Event::where('id', $event_id)->first();
         if ($event) {
             try {
