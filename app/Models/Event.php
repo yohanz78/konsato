@@ -15,6 +15,9 @@ class Event extends Model
         'price',
     ];
 
+    // protected $table = 'ms_admin';
+    protected $primaryKey = 'id';
+
     public function getRouteKeyName()
     {
         return 'slug';

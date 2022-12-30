@@ -3,11 +3,11 @@
 @section('content')
 <section class="banner">
     <div class="container">
-        <div id="bannerCarousel" class="col-lg-12 carousel slide carousel-fade" data-bs-ride="carousel">
+        <div id="bannerCarousel" class="col-lg-12 carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
-                <button type="button" data-bs-target="#mycarouselIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#mycarouselIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#mycarouselIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -20,11 +20,11 @@
                     <img src="{{asset('images/banner-3.png')}}" class="d-block w-100" alt="">
                 </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#mycarouselIndicators" data-bs-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#bannerCarousel" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#mycarouselIndicators" data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#bannerCarousel" data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
               </button>
@@ -46,85 +46,25 @@
                 </p>
                 <h2 class="primary-header">
                     Start Your Journey
-                </h2>
+                </h2> 
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-10 col-12">
                     <div class="row">
-                        <div class="col-lg-4 col-12">
+                        @foreach ($product as $events)
+                        <div class="col-lg-4 col-12 mt-4">
                             <div class="product-card">
-                                <img src="{{asset('images/product-1.png')}}" alt="Ticket 1">
-                                <h1 class="title">Dreamers Concert</h1>
+                                <img src="{{$events->image}}" alt="event-banner">
+                                <h1 class="title">{{$events->title}}</h1>
                                 <p class="desc">
-                                    Artist: Jung Kook <br>
-                                    Tanggal: dd/mm/yyyy
+                                    Artist: {{$events->artist}} <br>
+                                    Tanggal: {{$events->tanggal}}
                                 </p>
-                                <p class="price">$100</p>
-                                <p><a href="#" class="btn btn-master btn-primary w-100 mt-3">BUY NOW</a></p>
+                                <p class="price">${{$events->price}}</p>
+                                <p><a href="{{route('checkout.create', $events->slug)}}" class="btn btn-master btn-primary w-100 mt-3">BUY NOW</a></p>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-12">
-                            <div class="product-card">
-                                <img src="{{asset('images/product-1.png')}}" alt="Ticket 1">
-                                <h1 class="title">Dreamers Concert</h1>
-                                <p class="desc">
-                                    Artist: Jung Kook <br>
-                                    Tanggal: dd/mm/yyyy
-                                </p>
-                                <p class="price">$100</p>
-                                <p><a href="#" class="btn btn-master btn-primary w-100 mt-3">BUY NOW</a></p>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-12">
-                            <div class="product-card">
-                                <img src="{{asset('images/product-1.png')}}" alt="Ticket 1">
-                                <h1 class="title">Dreamers Concert</h1>
-                                <p class="desc">
-                                    Artist: Jung Kook <br>
-                                    Tanggal: dd/mm/yyyy
-                                </p>
-                                <p class="price">$100</p>
-                                <p><a href="#" class="btn btn-master btn-primary w-100 mt-3">BUY NOW</a></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row mt-5">
-                        <div class="col-lg-4 col-12">
-                            <div class="product-card">
-                                <img src="{{asset('images/product-1.png')}}" alt="Ticket 1">
-                                <h1 class="title">Dreamers Concert</h1>
-                                <p class="desc">
-                                    Artist: Jung Kook <br>
-                                    Tanggal: dd/mm/yyyy
-                                </p>
-                                <p class="price">$100</p>
-                                <p><a href="#" class="btn btn-master btn-primary w-100 mt-3">BUY NOW</a></p>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-12">
-                            <div class="product-card">
-                                <img src="{{asset('images/product-1.png')}}" alt="Ticket 1">
-                                <h1 class="title">Dreamers Concert</h1>
-                                <p class="desc">
-                                    Artist: Jung Kook <br>
-                                    Tanggal: dd/mm/yyyy
-                                </p>
-                                <p class="price">$100</p>
-                                <p><a href="#" class="btn btn-master btn-primary w-100 mt-3">BUY NOW</a></p>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-12">
-                            <div class="product-card">
-                                <img src="{{asset('images/product-1.png')}}" alt="Ticket 1">
-                                <h1 class="title">Dreamers Concert</h1>
-                                <p class="desc">
-                                    Artist: Jung Kook <br>
-                                    Tanggal: dd/mm/yyyy
-                                </p>
-                                <p class="price">$100</p>
-                                <p><a href="#" class="btn btn-master btn-primary w-100 mt-3">BUY NOW</a></p>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

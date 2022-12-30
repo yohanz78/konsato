@@ -16,78 +16,39 @@
         <div class="row my-5">
             <table class="table">
                 <tbody>
+                    @forelse ($checkouts as $checkout)
                     <tr class="align-middle">
                         <td width="18%">
                             <img src="{{asset('images/item_event.png')}}" height="120" alt="">
                         </td>
                         <td>
                             <p class="mb-2">
-                                <strong>Yoasobi Concert</strong>
+                                <strong>{{$checkout->event->title}}</strong>
                             </p>
                             <p>
-                                September 24, 2021
+                                {{$checkout->created_at->format('M d, Y')}}
                             </p>
                         </td>
                         <td>
-                            <strong>$100</strong>
+                            <strong>$ {{$checkout->event->price}}</strong>
                         </td>
                         <td>
                             <strong>Waiting for Payment</strong>
                         </td>
                         <td>
-                            <a href="#" class="btn btn-primary">
-                                Get Invoice
+                            <a href="https://wa.me/085780276907?text=Hai, Saya ingin bertanya tentang event {{$checkout->event->title}}" class="btn btn-primary">
+                                Contact Support
                             </a>
                         </td>
                     </tr>
+                    @empty
                     <tr class="align-middle">
-                        <td width="18%">
-                            <img src="{{asset('images/item_event.png')}}" height="120" alt="">
-                        </td>
-                        <td>
-                            <p class="mb-2">
-                                <strong>Yoasobi Concert</strong>
-                            </p>
-                            <p>
-                                September 24, 2021
-                            </p>
-                        </td>
-                        <td>
-                            <strong>$100</strong>
-                        </td>
-                        <td>
-                            <strong><span class="text-green">Payment Success</span></strong>
-                        </td>
-                        <td>
-                            <a href="#" class="btn btn-primary">
-                                Get Invoice
-                            </a>
+                        <td colspan="5">
+                            <h3><strong>You haven't book any event</strong></h3>
+                            <h4>Book an <a href="{{route('index')}}" style="color: #FBBF02">event</a> now!</h4>
                         </td>
                     </tr>
-                    <tr class="align-middle">
-                        <td width="18%">
-                            <img src="{{asset('images/item_event.png')}}" height="120" alt=" ">
-                        </td>
-                        <td>
-                            <p class=" mb-2 ">
-                                <strong>Yoasobi Concert</strong>
-                            </p>
-                            <p>
-                                September 24, 2021
-                            </p>
-                        </td>
-                        <td>
-                            <strong>$100</strong>
-                        </td>
-                        <td>
-                            <strong><span class="text-red ">Canceled</span></strong>
-                        </td>
-                        <td>
-                            <a href="# " class="btn btn-primary ">
-                                Get Invoice
-                            </a>
-                        </td>
-                    </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>

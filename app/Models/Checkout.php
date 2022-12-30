@@ -16,4 +16,9 @@ class Checkout extends Model
         'category',
         'is_paid',
     ];
+
+    public function event()
+    {
+        return $this->belongsTo(Event::class, 'event_id');
+    }
 }
