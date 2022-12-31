@@ -43,23 +43,38 @@
                             @csrf
                             <div class="mb-4">
                                 <label for="exampleInputEmail1" class="form-label">Email Address</label>
-                                <input name="email" type="email" class="form-control" value="{{@Auth::user()->email}}" aria-describedby="emailCheckout" required>
+                                <input name="email" type="email" class="form-control {{$errors->has('email') ? 'is-invalid' : ''}}" value="{{@Auth::user()->email}}" aria-describedby="emailCheckout" required>
+                                @if ($errors->has('email'))
+                                        <p class="text-danger">{{$errors->first('email')}}</p>
+                                @endif
                             </div>
                             <div class="mb-4">
                                 <label for="exampleInputEmail1" class="form-label">Full Name</label>
-                                <input name="name" type="text" class="form-control" value="{{@Auth::user()->name}}" aria-describedby="fullnameCheckout" required>
+                                <input name="name" type="text" class="form-control {{$errors->has('name') ? 'is-invalid' : ''}}" value="{{@Auth::user()->name}}" aria-describedby="fullnameCheckout" required>
+                                @if ($errors->has('name'))
+                                        <p class="text-danger">{{$errors->first('name')}}</p>
+                                @endif
                             </div>
                             <div class="mb-4">
                                 <label for="exampleInputEmail1" class="form-label">Category</label>
-                                <input name="category" type="text" class="form-control" aria-describedby="categoryCheckout" required>
+                                <input name="category" type="text" class="form-control {{$errors->has('category') ? 'is-invalid' : ''}}" aria-describedby="categoryCheckout" required>
+                                @if ($errors->has('category'))
+                                        <p class="text-danger">{{$errors->first('category')}}</p>
+                                @endif
                             </div>
                             <div class="mb-4">
                                 <label for="exampleInputEmail1" class="form-label">Phone Number</label>
-                                <input name="phone" type="text" class="form-control" value="{{@Auth::user()->phone}}" aria-describedby="phoneCheckout" required>
+                                <input name="phone" type="text" class="form-control {{$errors->has('phone') ? 'is-invalid' : ''}}" value="{{old('phone') ?: @Auth::user()->phone}}" aria-describedby="phoneCheckout" required>
+                                @if ($errors->has('phone'))
+                                        <p class="text-danger">{{$errors->first('phone')}}</p>
+                                @endif
                             </div>
                             <div class="mb-4">
                                 <label for="exampleInputEmail1" class="form-label">Address</label>
-                                <input name="address" type="text" class="form-control" value="{{@Auth::user()->address}}" aria-describedby="addressCheckout" required>
+                                <input name="address" type="text" class="form-control {{$errors->has('address') ? 'is-invalid' : ''}}" value="{{old('address') ?: @Auth::user()->address}}" aria-describedby="addressCheckout" required>
+                                @if ($errors->has('address'))
+                                        <p class="text-danger">{{$errors->first('address')}}</p>
+                                @endif
                             </div>
                             <button type="submit" class="w-100 btn btn-primary">Pay Now</button>
                             <p class="text-center subheader mt-4">

@@ -7,13 +7,21 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Routing\Controller as BaseController;
 use App\Models\Checkout;
 use App\Models\Event;
+use App\Http\Requests\User\Checkout\Store;
 use App\Models\User;
 use Auth;
+use Mail;
+use App\Mail\Checkout\AfterCheckout;
 
 class CheckoutController extends Controller
 {
-    public function create(Event $event)
+    public function create(Event $event , Request $request)
     {
+        if ($event->isRegistered) {
+            $request->session()->flash('error' , "You already registered on {$event->title} concert.");
+            return redirect(route('user.dashboard'));
+        }
+
         return view('checkout.create', [
             "event" => $event
         ]);
@@ -41,6 +49,9 @@ class CheckoutController extends Controller
                 // create checkout
                 $checkout = Checkout::create($data);
                 DB::commit();
+
+                // sending email
+                Mail::to(Auth::user()->email)->send(new AfterCheckout($checkout));
     
             } catch (\Exception $e) {
                 DB::rollBack();
@@ -58,5 +69,10 @@ class CheckoutController extends Controller
     public function success()
     {
         return view('checkout.success');
+    }
+
+    public function invoice(Checkout $checkout)
+    {
+        return $checkout;
     }
 }
