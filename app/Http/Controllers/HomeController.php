@@ -14,10 +14,16 @@ class HomeController extends Controller
         return view('index', compact('product'));
     }
 
-    public function dashboard() {
-        $checkouts = Checkout::with('event')->where('user_id',Auth::id())->get();
-        return view('user.dashboard', [
-            "checkouts" => $checkouts
-        ]);
+    public function dashboard()
+    {
+        switch (Auth::user()->is_admin) {
+            case true:
+                return redirect(route('admin.dashboard'));
+                break;
+            
+            default:
+                return redirect(route('user.dashboard'));
+                break;
+        }
     }
 }
