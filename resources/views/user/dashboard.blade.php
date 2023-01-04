@@ -29,12 +29,22 @@
                             <p>
                                 {{$checkout->created_at->format('M d, Y')}}
                             </p>
+                            <p>
+                                {{$checkout->event->category}}
+                            </p>
                         </td>
                         <td>
                             <strong>$ {{$checkout->event->price}}</strong>
                         </td>
                         <td>
-                            <strong>Waiting for Payment</strong>
+                            <strong class="{{$checkout->payment_status=='paid'?'text-success':'text-secondary'}}">
+                                {{$checkout->payment_status}}
+                            </strong>
+                        </td>
+                        <td>
+                            @if ($checkout->payment_status == 'waiting')
+                                <a href="{{$checkout->midtrans_url}}" target="_blank" class="btn btn-primary">Pay here</a>
+                            @endif
                         </td>
                         <td>
                             <a href="https://wa.me/085780276907?text=Hai, Saya ingin bertanya tentang event {{$checkout->event->title}}" class="btn btn-primary">
