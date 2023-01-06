@@ -2,13 +2,15 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\User\DashboardController as UserDashboard;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboard;
 use App\Http\Controllers\Admin\CheckoutController as AdminCheckout;
 
-Route::get('/', [HomeController::class, 'index'])->name('index');
+Route::resource('/', EventController::class);
+Route::get('/', [EventController::class, 'index'])->name('index');
 
 // Route::get('login', function () {
 //    return view('auth.user.login');
@@ -24,6 +26,7 @@ Route::post('payment/success', [CheckoutController::class, 'midtransCallback']);
 
 Route::middleware(['auth'])->group(function () {
     // Checkout route
+    Route::resource('checkout/{event:slug}', EventController::class);
     Route::get('checkout/success', [CheckoutController::class, 'success'])->name('checkout.success')->middleware('ensureUserRole:user');
     Route::get('checkout/{event:slug}', [CheckoutController::class, 'create'])->name('checkout.create')->middleware('ensureUserRole:user');
     Route::post('checkout/{event}', [CheckoutController::class, 'store'])->name('checkout.store')->middleware('ensureUserRole:user');
@@ -33,6 +36,7 @@ Route::middleware(['auth'])->group(function () {
 
     // user dashboard
     Route::prefix('user/dashboard')->namespace('User')->name('user.')->middleware('ensureUserRole:user')->group(function(){
+        Route::resource('/', EventController::class);
         Route::get('/', [UserDashboard::class, 'dashboard'])->name('dashboard');
     });
     

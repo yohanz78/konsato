@@ -54,11 +54,15 @@
                         @foreach ($product as $events)
                         <div class="col-lg-4 col-12 mt-4">
                             <div class="product-card">
-                                <img src="{{$events->image}}" alt="event-banner">
+                                @foreach ($events->EventsDetail as $item)
+                                <span><img src="{{$item->image}}" alt="event-banner"></span>
+                                @endforeach
                                 <h1 class="title">{{$events->title}}</h1>
                                 <p class="desc">
-                                    Artist: {{$events->artist}} <br>
-                                    Tanggal: {{$events->tanggal}}
+                                    @foreach ($events->EventsDetail as $item)
+                                    Artist: {{$item->artist}} <br>
+                                    Tanggal: {{$item->tanggal}}
+                                    @endforeach
                                 </p>
                                 <p class="price">${{$events->price}}</p>
                                 <p><a href="{{route('checkout.create', $events->slug)}}" class="btn btn-master btn-primary w-100 mt-3">BUY NOW</a></p>
