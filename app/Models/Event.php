@@ -11,14 +11,25 @@ use Auth;
 class Event extends Model
 {
     use HasFactory, SoftDeletes;
-
+    protected $table = 'events';
+    protected $primaryKey = 'id';
+    
     protected $fillable = [
         'title',
         'price',
     ];
 
     // protected $table = 'ms_admin';
-    protected $primaryKey = 'id';
+
+    /**
+     * Get all of the comments for the Event
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function eventsdetail()
+    {
+        return $this->hasMany(EventsDetail::class);
+    }
 
     public function getRouteKeyName()
     {

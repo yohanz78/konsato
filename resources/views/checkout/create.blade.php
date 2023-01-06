@@ -15,14 +15,18 @@
                 <div class="row">
                     <div class="col-lg-5 col-12">
                         <div class="item-bootcamp">
-                            <img src="{{asset('images/item_event.png')}}" alt="" class="cover">
+                            @foreach ($event->EventsDetail as $item)
+                            <img src="{{$item->image}}" alt="events-banner" class="cover">
+                            @endforeach
                             <h1 class="package">
                                 {{$event->title}}
                             </h1>
                             <p class="description">
-                                Artist: Ayase x Lilas Ikuta <br>
-                                Tanggal: dd/mm/yyyy <br>
-                                Lokasi: <br>
+                                @foreach ($event->EventsDetail as $item)
+                                Artist: {{$item->artist}} <br>
+                                Tanggal: {{$item->tanggal}} <br>
+                                Lokasi: {{$item->lokasi}} <br>
+                                @endforeach
                                 Kategori tempat duduk:
                                 <ul>
                                     <li>Normal</li>

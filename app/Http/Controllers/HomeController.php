@@ -9,11 +9,6 @@ use Auth;
 
 class HomeController extends Controller
 {
-    public function index() {
-        $product = Event::all();
-        return view('index', compact('product'));
-    }
-
     public function dashboard()
     {
         switch (Auth::user()->is_admin) {
