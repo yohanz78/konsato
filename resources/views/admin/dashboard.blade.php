@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-8 offset-2">
+            <div class="col-12">
                 <div class="card">
                     <div class="card-header">
                         My Camps
@@ -18,6 +18,7 @@
                                     <th>Price</th>
                                     <th>Register Data</th>
                                     <th>Paid Status</th>
+                                    <th>Booking Code</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -26,15 +27,25 @@
                                     <tr>
                                         <td>{{$checkout->User->name}}</td>
                                         <td>{{$checkout->Event->title}}</td>
-                                        <td>{{$checkout->Event->price}}k</td>
+                                        <td>${{$checkout->Event->price}}</td>
                                         <td>{{$checkout->created_at->format('M d Y')}}</td>
                                         <td><span class="badge bg-info text-black">{{$checkout->payment_status}}</span></td>
-                                        {{-- <td>
+                                        <td>{{$checkout->booking_code}}</td>
+                                        <td>
+                                            @if ($checkout->payment_status == 'waiting')
                                             <form action="{{route('admin.checkout.update', $checkout->id)}}" method="post">
                                                 @csrf
-                                                <button class="btn btn-primary btn-sm">Send Invoice</button>
+                                                <button class="btn btn-secondary btn-sm" disabled>Send Invoice</button>
                                             </form>
-                                        </td> --}}
+                                            @else
+                                                @if (!$checkout->qrcode == 'qrcode')
+                                                <form action="{{route('admin.checkout.update', $checkout->id)}}" method="post">
+                                                    @csrf
+                                                    <button class="btn btn-primary btn-sm">Send Invoice</button>
+                                                </form>
+                                                @endif
+                                            @endif
+                                        </td>
                                     </tr>
                                 @empty
                                     <tr>

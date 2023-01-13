@@ -16,6 +16,7 @@ class Checkout extends Model
         'event_id',
         'category',
         // 'is_paid',
+        'qrcode',
     ];
 
     public function event(): BelongsTo

@@ -12,6 +12,7 @@ class DashboardController extends Controller
     public function dashboard()
     {
         $checkouts = Checkout::with('Event')->whereUserId(Auth::id())->get();
+        // dd($checkouts);
         return view('user.dashboard', [
             'checkouts' => $checkouts
         ]);

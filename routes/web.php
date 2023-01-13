@@ -36,16 +36,16 @@ Route::middleware(['auth'])->group(function () {
 
     // user dashboard
     Route::prefix('user/dashboard')->namespace('User')->name('user.')->middleware('ensureUserRole:user')->group(function(){
-        Route::resource('/', EventController::class);
         Route::get('/', [UserDashboard::class, 'dashboard'])->name('dashboard');
+        // Route::resource('/', EventController::class);
     });
     
     // admin dashboard
     Route::prefix('admin/dashboard')->namespace('Admin')->name('admin.')->middleware('ensureUserRole:admin')->group(function(){
         Route::get('/', [AdminDashboard::class, 'dashboard'])->name('dashboard');
     
-    // admin checkout
-    Route::post('checkout/{checkout}', [AdminCheckout::class, 'update'])->name('checkout.update');
+        // admin checkout
+        Route::post('checkout/{checkout}', [AdminCheckout::class, 'update'])->name('checkout.update');
     });
 });
 
