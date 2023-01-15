@@ -16,7 +16,8 @@ class CheckoutController extends Controller
         $bookingCode = $checkout->booking_code;
         // booking code qrcode (image)
         $qrcode = QrCode::size(150)->generate($bookingCode);
-        
+        // dump($qrcode->html);
+        // echo '<pre>'; print_r($qrcode); echo '</pre>';
         $checkout['qrcode'] = $qrcode;
         $checkout->save();
 

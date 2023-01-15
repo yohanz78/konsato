@@ -3,7 +3,7 @@
 
 HI {{$user->name}}
 <br>
-Welcome to Konsato, your account has been created successfully. Now you can choose your live concert events!
+Welcome to Konsato, your account has been created successfully. Now you can checkout your live concert events!
 
 @component('mail::button', ['url' => route('login')])
 Login Here

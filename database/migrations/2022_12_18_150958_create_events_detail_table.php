@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('artist');
             $table->date('tanggal');
             $table->string('lokasi');
-            $table->text('image'); // image tipe data text
             $table->timestamps();
             $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade');
         });

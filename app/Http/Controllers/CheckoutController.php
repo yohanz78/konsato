@@ -89,7 +89,7 @@ class CheckoutController extends Controller
 
     public function getSnapRedirect(Checkout $checkout)
     {
-        $orderId = $checkout->id.'-'.Str::random(5);
+        $orderId = $checkout->event_id.'-'.Str::random(5);
         $price = $checkout->event->price * 1000;
 
         $checkout->booking_code = $orderId;
