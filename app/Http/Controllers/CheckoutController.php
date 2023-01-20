@@ -92,7 +92,7 @@ class CheckoutController extends Controller
         $orderId = $checkout->id.'-'.Str::random(5);
         $price = $checkout->event->price * 1000;
 
-        $checkout->midtrans_booking_code = $orderId;
+        $checkout->booking_code = $orderId;
 
         $transaction_details = [
             'order_id' => $orderId,
@@ -151,7 +151,7 @@ class CheckoutController extends Controller
         $fraud = $notif->fraud_status;
         $checkout_id = explode('-', $notif->order_id)[0];
         $checkout = Checkout::find($checkout_id);
-
+        // dd($checkout);
         if ($transaction_status == 'capture') {
             if ($fraud == 'challenge') {
                 // TODO Set payment status in merchant's database to 'challenge'
@@ -191,10 +191,5 @@ class CheckoutController extends Controller
 
         $checkout->save();
         return view('checkout/success');
-    }
-
-    public function invoice(Checkout $checkout)
-    {
-        return $checkout;
     }
 }

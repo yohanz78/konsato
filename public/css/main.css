@@ -68,8 +68,8 @@ body {
 
 .testimonials {
   background: #F7F7FB;
-  margin-top: 50px;
-  padding: 70px 0 70px 0;
+  /* margin-top: 50px; */
+  padding: 100px 0 70px 0;
 }
 
 .testimonials .item-review {
@@ -117,6 +117,7 @@ body {
 
 .pricing {
   margin-top: 30px;
+  margin-bottom: 30px;
 }
 .pricing .copywriting {
   margin: 50px 0 50px 0;
@@ -324,6 +325,31 @@ body {
 
 .navbar .navbar-brand img {
   height: 42px;
+}
+
+.benefits {
+  /* margin-bottom: 100px; */
+  padding: 100px 0px 100px 0;
+  background-color: #FFD85E;
+}
+
+.benefits .item-benefit .icon {
+  width: 56px;
+  height: 56px;
+  margin-bottom: 20px;
+}
+
+.benefits .item-benefit .title {
+  font-size: 20px;
+  color: #211B3D;
+  font-weight: 500;
+}
+
+.benefits .item-benefit .support {
+  font-size: 16px;
+  font-weight: 400;
+  color: #5B5575;
+  line-height: 30px;
 }
 
 /*# sourceMappingURL=main.css.map */

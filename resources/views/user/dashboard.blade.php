@@ -19,18 +19,15 @@
                 <tbody>
                     @forelse ($checkouts as $checkout)
                     <tr class="align-middle">
-                        <td width="18%">
-                            <img src="{{asset('images/item_event.png')}}" height="120" alt="">
+                        <td width="19%">
+                            <img src="{{$checkout->event->image}}" height="120" alt="event-banner" style="border-radius: 10%; display: flex; justify-content: center;">
                         </td>
                         <td>
                             <p class="mb-2">
                                 <strong>{{$checkout->event->title}}</strong>
                             </p>
                             <p>
-                                {{$checkout->created_at->format('M d, Y')}}
-                            </p>
-                            <p>
-                                {{$checkout->event->category}}
+                                {{$checkout->category}}
                             </p>
                         </td>
                         <td>
@@ -47,7 +44,7 @@
                             @endif
                         </td>
                         <td>
-                            <a href="https://wa.me/085780276907?text=Hai, Saya ingin bertanya tentang event {{$checkout->event->title}}" class="btn btn-primary">
+                            <a href="https://wa.me/085123456789?text=Hai, Saya ingin bertanya tentang event {{$checkout->event->title}}" class="btn btn-primary">
                                 Contact Support
                             </a>
                         </td>

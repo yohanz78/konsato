@@ -15,10 +15,8 @@
                 <div class="row">
                     <div class="col-lg-5 col-12">
                         <div class="item-bootcamp">
-                            @foreach ($event->EventsDetail as $item)
-                            <img src="{{$item->image}}" alt="events-banner" class="cover">
-                            @endforeach
-                            <h1 class="package">
+                            <img src="{{$event->image}}" alt="events-banner" class="cover">
+                            <h1 class="package mb-3">
                                 {{$event->title}}
                             </h1>
                             <p class="description">

@@ -54,9 +54,7 @@
                         @foreach ($product as $events)
                         <div class="col-lg-4 col-12 mt-4">
                             <div class="product-card">
-                                @foreach ($events->EventsDetail as $item)
-                                <span><img src="{{$item->image}}" alt="event-banner"></span>
-                                @endforeach
+                                <span><img src="{{$events->image}}" alt="event-banner"></span>
                                 <h1 class="title">{{$events->title}}</h1>
                                 <p class="desc">
                                     @foreach ($events->EventsDetail as $item)
@@ -76,15 +74,76 @@
     </div>
 </section>
 
+<section class="benefits">
+    <div class="container">
+        <div class="row text-center pb-70">
+            <div class="col-lg-12 col-12 header-wrap">
+                <p class="story">
+                    BENEFITS USING OUR SERVICES
+                </p>
+                <h2 class="primary-header">
+                    Easily Order Online Concert
+                </h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-12">
+                <div class="item-benefit">
+                    <img src="{{asset('images/ic_globe.png')}}" class="icon" alt="">
+                    <h3 class="title">
+                        Worldwide
+                    </h3>
+                    <p class="support">
+                        Konsato menyediakan tiket konser <br> online di seluruh dunia
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-12">
+                <div class="item-benefit">
+                    <img src="{{asset('images/ic_globe-1.png')}}" class="icon" alt="">
+                    <h3 class="title">
+                        Simple Payment
+                    </h3>
+                    <p class="support">
+                        Konsato memiliki banyak sistem <br> pembayaran yang dapat <br> digunakan saat membeli tiket
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-12">
+                <div class="item-benefit">
+                    <img src="{{asset('images/ic_globe-2.png')}}" class="icon" alt="">
+                    <h3 class="title">
+                        Popular Artist
+                    </h3>
+                    <p class="support">
+                        Konsato bekerja sama <br> dengan artis-artis terkenal
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-12">
+                <div class="item-benefit">
+                    <img src="{{asset('images/ic_globe-3.png')}}" class="icon" alt="">
+                    <h3 class="title">
+                        Free Merchandise
+                    </h3>
+                    <p class="support">
+                        Setiap pembelian tiket dengan <br> kategori tertentu akan mendapatkan free merchandise
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="testimonials">
     <div class="container">
         <div class="row text-center pb-70">
             <div class="col-lg-12 col-12 header-wrap">
                 <p class="story">
-                    SUCCESS STUDENTS
+                    SUCCESS CONCERT
                 </p>
                 <h2 class="primary-header">
-                    We Really Love Laracamp
+                    We Really Love Konsāto
                 </h2>
             </div>
         </div>
@@ -95,16 +154,16 @@
                         <div class="item-review">
                             <img src="{{asset('images/stars.svg')}}" alt="">
                             <p class="message">
-                                I was not really into code but after they teach me how to train my logic then I was really fall in love with code
+                                The Concert opening ceremony was absolutely spectacular!
                             </p>
                             <div class="user">
                                 <img src="{{asset('images/fanny_photo.png')}}" class="photo" alt="">
                                 <div class="info">
                                     <h4 class="name">
-                                        Fanny
+                                        Tyson
                                     </h4>
                                     <p class="role">
-                                        Developer at Google
+                                        Gamer
                                     </p>
                                 </div>
                             </div>
@@ -114,16 +173,16 @@
                         <div class="item-review">
                             <img src="{{asset('images/stars.svg')}}" alt="">
                             <p class="message">
-                                Code is really important if we want to build a company and strike to the win
+                                It was a wonderful concert Awesome performance! Thanks to all your team for the atmosphere!
                             </p>
                             <div class="user">
                                 <img src="{{asset('images/angga.png')}}" class="photo" alt="">
                                 <div class="info">
                                     <h4 class="name">
-                                        Angga
+                                        Kenneth Adam
                                     </h4>
                                     <p class="role">
-                                        CEO at BWA Corp
+                                        Event Organizer
                                     </p>
                                 </div>
                             </div>
@@ -133,16 +192,16 @@
                         <div class="item-review">
                             <img src="{{asset('images/stars.svg')}}" alt="">
                             <p class="message">
-                                My background is design and art but I do really love how to make my design working in the development phase
+                                I can't believe Yoasobi wants to come to a concert in Indonesia, I'm really speechless! very touched!   
                             </p>
                             <div class="user">
                                 <img src="{{asset('images/beatrice.png')}}" class="photo" alt="">
                                 <div class="info">
                                     <h4 class="name">
-                                        Beatrice
+                                        Regi Prabowo
                                     </h4>
                                     <p class="role">
-                                        QA at Facebook
+                                        Youtuber
                                     </p>
                                 </div>
                             </div>
@@ -152,7 +211,7 @@
                 <div class="row copyright">
                     <div class="col-lg-12 col-12">
                         <p>
-                            All Rights Reserved. Copyright Laracamp BWA Indonesia.
+                            All Rights Reserved. Copyright Konsato Indonesia.
                         </p>
                     </div>
                 </div>

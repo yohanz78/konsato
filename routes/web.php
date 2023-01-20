@@ -26,7 +26,7 @@ Route::post('payment/success', [CheckoutController::class, 'midtransCallback']);
 
 Route::middleware(['auth'])->group(function () {
     // Checkout route
-    Route::resource('checkout/{event:slug}', EventController::class);
+    // Route::resource('checkout/{event:slug}', EventController::class);
     Route::get('checkout/success', [CheckoutController::class, 'success'])->name('checkout.success')->middleware('ensureUserRole:user');
     Route::get('checkout/{event:slug}', [CheckoutController::class, 'create'])->name('checkout.create')->middleware('ensureUserRole:user');
     Route::post('checkout/{event}', [CheckoutController::class, 'store'])->name('checkout.store')->middleware('ensureUserRole:user');
@@ -36,16 +36,16 @@ Route::middleware(['auth'])->group(function () {
 
     // user dashboard
     Route::prefix('user/dashboard')->namespace('User')->name('user.')->middleware('ensureUserRole:user')->group(function(){
-        Route::resource('/', EventController::class);
         Route::get('/', [UserDashboard::class, 'dashboard'])->name('dashboard');
+        // Route::resource('/', EventController::class);
     });
     
     // admin dashboard
     Route::prefix('admin/dashboard')->namespace('Admin')->name('admin.')->middleware('ensureUserRole:admin')->group(function(){
         Route::get('/', [AdminDashboard::class, 'dashboard'])->name('dashboard');
     
-    // admin checkout
-    Route::post('checkout/{checkout}', [AdminCheckout::class, 'update'])->name('checkout.update');
+        // admin checkout
+        Route::post('checkout/{checkout}', [AdminCheckout::class, 'update'])->name('checkout.update');
     });
 });
 

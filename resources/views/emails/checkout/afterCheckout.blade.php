@@ -5,10 +5,8 @@ Hi {{$checkout->User->name}}
 <br>
 Thank you for register on <b>{{$checkout->Event->title}}</b>, please see payment instruction by click the button below.
 
-The body of your message.
-
-@component('mail::button', ['url' => route('user.checkout.invoice' , $checkout->id)])
-Get Invoice
+@component('mail::button', ['url' => route('user.dashboard')])
+Dashboard
 @endcomponent
 
 Thanks,<br>

@@ -31,9 +31,15 @@
                         <img src="https://ui-avatars.com/api/?name=Admin" class="user-photo" alt="" style="border-radius: 50%">
                         @endif
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="right: 0; left: auto">
+                            @if (Auth::user()->is_admin)
+                            <li>
+                                <a href="{{route('admin.dashboard')}}" class="dropdown-item">My Dashboard</a>
+                            </li>
+                            @else
                             <li>
                                 <a href="{{route('user.dashboard')}}" class="dropdown-item">My Dashboard</a>
                             </li>
+                            @endif
                             <li>
                                 <a href="#" class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit()">Sign Out</a>
                                 <form id="logout-form" action="{{route('logout')}}" method="post" style="display: none">

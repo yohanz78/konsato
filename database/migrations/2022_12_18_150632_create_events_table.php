@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('title',100);
             $table->string('slug',100);
             $table->integer('price')->unsigned();
+            $table->text('image'); // image tipe data text
             $table->timestamps();
             $table->softDeletes();
         });

@@ -17,6 +17,7 @@ class Event extends Model
     protected $fillable = [
         'title',
         'price',
+        'image',
     ];
 
     // protected $table = 'ms_admin';
