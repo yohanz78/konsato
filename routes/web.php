@@ -26,7 +26,7 @@ Route::post('payment/success', [CheckoutController::class, 'midtransCallback']);
 
 Route::middleware(['auth'])->group(function () {
     // Checkout route
-    Route::resource('checkout/{event:slug}', EventController::class);
+    // Route::resource('checkout/{event:slug}', EventController::class);
     Route::get('checkout/success', [CheckoutController::class, 'success'])->name('checkout.success')->middleware('ensureUserRole:user');
     Route::get('checkout/{event:slug}', [CheckoutController::class, 'create'])->name('checkout.create')->middleware('ensureUserRole:user');
     Route::post('checkout/{event}', [CheckoutController::class, 'store'])->name('checkout.store')->middleware('ensureUserRole:user');

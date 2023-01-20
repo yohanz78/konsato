@@ -89,7 +89,7 @@ class CheckoutController extends Controller
 
     public function getSnapRedirect(Checkout $checkout)
     {
-        $orderId = $checkout->event_id.'-'.Str::random(5);
+        $orderId = $checkout->id.'-'.Str::random(5);
         $price = $checkout->event->price * 1000;
 
         $checkout->booking_code = $orderId;
@@ -151,7 +151,7 @@ class CheckoutController extends Controller
         $fraud = $notif->fraud_status;
         $checkout_id = explode('-', $notif->order_id)[0];
         $checkout = Checkout::find($checkout_id);
-
+        // dd($checkout);
         if ($transaction_status == 'capture') {
             if ($fraud == 'challenge') {
                 // TODO Set payment status in merchant's database to 'challenge'
@@ -191,10 +191,5 @@ class CheckoutController extends Controller
 
         $checkout->save();
         return view('checkout/success');
-    }
-
-    public function invoice(Checkout $checkout)
-    {
-        return $checkout;
     }
 }

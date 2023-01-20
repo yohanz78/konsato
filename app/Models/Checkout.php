@@ -15,7 +15,9 @@ class Checkout extends Model
         'user_id',
         'event_id',
         'category',
-        // 'is_paid',
+        'payment_status',
+        'midtrans_url',
+        'booking_code',
         'qrcode',
     ];
 
